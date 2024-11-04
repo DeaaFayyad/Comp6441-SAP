@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="{{ url_for('index') }}" style="float: left; font-weight: bold; color: #a58ad1; margin-right: 20px;">Pass.io</a>
+        <a href="{{ url_for('index') }}">Home</a> |
+        <a href="{{ url_for('news') }}">News</a> |
+        <a href="{{ url_for('blog') }}">Blog</a> |
+        <a href="{{ url_for('analysis') }}">Analysis</a>
+    </nav>
+
+    <!-- Page Heading with Blue Background Bar -->
+    <div class="page-heading">
+        <h1>How Secure is Your Password?</h1>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <h1 style="font-size: 2em; text-align: center;">Password Strength Checker</h1>
+        
+        <div class="password-checker" style="text-align: center;">
+            <input type="password" id="password-input" placeholder="Enter Password" class="password-input">
+            <div class="button-group">
+                <button type="button" onclick="togglePassword()">SHOW</button>
+                <button type="button" onclick="checkPassword()">CHECK</button>
+            </div>
+
+            <!-- Strength Meter -->
+            <div id="strength-bar">
+                <span class="strength weak"></span>
+                <span class="strength medium"></span>
+                <span class="strength strong"></span>
+            </div>
+
+            <!-- Feedback Message -->
+            <p id="feedback">Your password is weak</p>
+
+            <!-- Security Message -->
+            <p style="color: #ffffff; font-size: 0.9em; margin-top: 15px;">
+                Your passwords are never stored. Even if they were, we have no idea who you are!
+            </p>
+        </div>
+
+        <!-- New Blue Heading Divider Below Password Checker -->
+        <div class="page2-heading">
+            <h2>Do you want to know more about the best practices when using and creating passwords, cyber risks, and the most common mistakes people make when creating password?</h2>
+        <div class="findoutmore">
+            <h2>Find Out More Below!</h2>
+        </div>
+        </div>
+
+        <!-- Section: Poor Password Practices -->
+        <section class="poor-practices">
+            <h2>The Most Common Poor Password Practices</h2>
+            <div class="practice-cards">
+                <div class="practice-card">
+                    <img src="{{ url_for('static', filename='../static/icons/icon-easy-password.png') }}" alt="Easy Password Icon" class="icon">
+                    <p>Create Easy Passwords</p>
+                </div>
+                <div class="practice-card">
+                    <img src="{{ url_for('static', filename='../static/icons/icon-reuse-password.png') }}" alt="Easy Password Icon" class="icon">
+                    <p>Reuse Passwords</p>
+                </div>
+                <div class="practice-card">
+                    <img src="{{ url_for('static', filename='../static/icons/icon-sharing.png') }}" alt="Easy Password Icon" class="icon">
+                    <p>Sharing Passwords Insecurely</p>
+                </div>
+                <div class="practice-card">
+                    <img src="{{ url_for('static', filename='../static/icons/icon-writing-down.png') }}" alt="Easy Password Icon" class="icon">
+                    <p>Writing Passwords Down</p>
+                </div>
+                <div class="practice-card">
+                    <img src="{{ url_for('static', filename='../static/icons/icon-mfa.png') }}" alt="Easy Password Icon" class="icon">
+                    <p>Skip Adopting MFA</p>
+                </div>
+                <div class="practice-card">
+                    <img src="{{ url_for('static', filename='../static/icons/icon-browser-save.png') }}" alt="Easy Password Icon" class="icon">
+                    <p>Letting Browsers Save Passwords</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Strong Password Tips and Tricks -->
+        <section class="tips-tricks">
+            <h2>Strong Passwords Tips and Tricks</h2>
+            <div class="tips">
+                <div class="tip">
+                    <h3>Common Mistakes</h3>
+                    <p>Replacing letters with symbols isn’t enough. Avoid predictable patterns and think of unique passphrases.</p>
+                </div>
+                <div class="tip">
+                    <h3>Guilty Habits</h3>
+                    <p>Never store passwords in notes or spreadsheets. Use a password manager to stay secure.</p>
+                </div>
+                <div class="tip">
+                    <h3>What Makes a Strong Password?</h3>
+                    <p>A strong password is long, unique, and difficult to guess. Aim for at least 14 characters with mixed types.</p>
+                </div>
+                <div class="tip">
+                    <h3>Use a Passphrase</h3>
+                    <p>Consider using a passphrase. It’s easier to remember and increases security exponentially.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

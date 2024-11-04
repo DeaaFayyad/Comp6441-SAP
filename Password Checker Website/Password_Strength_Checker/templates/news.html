@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="{{ url_for('index') }}" style="float: left; font-weight: bold; color: #007bff; margin-right: 20px;">Pass.io</a>
+        <a href="{{ url_for('index') }}">Home</a> |
+        <a href="{{ url_for('news') }}">News</a> |
+        <a href="{{ url_for('blog') }}">Blog</a> |
+        <a href="{{ url_for('analysis') }}">Analysis</a>
+    </nav>
+
+    <!-- News Content -->
+    <div class="container">
+        <h1>News</h1>
+
+        <!-- Form to Add News -->
+        <form method="POST" action="{{ url_for('news') }}" style="margin-bottom: 20px;">
+            <input type="text" name="title" placeholder="Title" required>
+            <textarea name="content" placeholder="Content" required></textarea>
+            <button type="submit">Add News</button>
+        </form>
+
+        <!-- Display News Articles -->
+        <div class="news-section">
+            {% for article in articles %}
+                <div class="news-item" style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                    <h3><a href="{{ url_for('news_detail', index=article[0]) }}">{{ article[1] }}</a></h3>
+                    <p><strong>Date:</strong> {{ article[3] }}</p>
+                    <p>{{ article[2] | truncate(100) }} <a href="{{ url_for('news_detail', index=article[0]) }}">Read more</a></p>
+                    <form action="{{ url_for('delete_news', id=article[0]) }}" method="post" style="display: inline;">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

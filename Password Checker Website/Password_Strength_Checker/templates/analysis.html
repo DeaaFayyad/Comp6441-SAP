@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="{{ url_for('index') }}" style="float: left; font-weight: bold; color: #a58ad1; margin-right: 20px;">Pass.io</a>
+        <a href="{{ url_for('index') }}">Home</a> |
+        <a href="{{ url_for('news') }}">News</a> |
+        <a href="{{ url_for('blog') }}">Blog</a> |
+        <a href="{{ url_for('analysis') }}">Analysis</a>
+    </nav>
+
+    <!-- Graph Section -->
+    <div class="container graph-section" style="display: flex; justify-content: space-around; gap: 150px; padding: 60px; max-width: 100%;">
+        <div style="text-align: center; flex: 1;">
+            <h2>Password Strength Distribution</h2>
+            <img src="{{ url_for('static', filename='password_strength_distribution.png') }}" 
+                 alt="Password Strength Distribution" 
+                 title="Password Strength Distribution Chart"
+                 style="width: 100%; height: auto;">
+        </div>
+        
+        <div style="text-align: center; flex: 1;">
+            <h2>Password Length Distribution</h2>
+            <img src="{{ url_for('static', filename='password_length_distribution.png') }}" 
+                 alt="Password Length Distribution" 
+                 title="Password Length Distribution Chart"
+                 style="width: 100%; height: auto;">
+        </div>
+    </div>
+</body>
+</html>

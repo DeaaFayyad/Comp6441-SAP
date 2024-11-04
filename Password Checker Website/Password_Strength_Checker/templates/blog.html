@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="{{ url_for('index') }}" style="float: left; font-weight: bold; color: #007bff; margin-right: 20px;">Pass.io</a>
+        <a href="{{ url_for('index') }}">Home</a> |
+        <a href="{{ url_for('news') }}">News</a> |
+        <a href="{{ url_for('blog') }}">Blog</a> |
+        <a href="{{ url_for('analysis') }}">Analysis</a>
+    </nav>
+
+    <!-- Blog Content -->
+    <div class="container">
+        <h1>Blog</h1>
+        <form method="POST" action="{{ url_for('blog') }}">
+            <input type="text" name="title" placeholder="Title" required>
+            <textarea name="content" placeholder="Content" required></textarea>
+            <button type="submit">Post</button>
+        </form>
+    
+        <h2>Recent Blog Posts</h2>
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <h3>{{ post[1] }}</h3>
+                    <p>{{ post[2] | truncate(100) }}</p>
+                    <p><strong>Date:</strong> {{ post[3] }}</p>
+                    <form action="{{ url_for('delete_blog', id=post[0]) }}" method="post" style="display: inline;">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

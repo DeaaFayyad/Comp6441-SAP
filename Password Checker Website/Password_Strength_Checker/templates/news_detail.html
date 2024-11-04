@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ article[1] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="{{ url_for('index') }}" style="float: left; font-weight: bold; color: #a58ad1; margin-right: 20px;">Pass.io</a>
+        <a href="{{ url_for('index') }}">Home</a> |
+        <a href="{{ url_for('news') }}">News</a> |
+        <a href="{{ url_for('blog') }}">Blog</a> |
+        <a href="{{ url_for('analysis') }}">Analysis</a>
+    </nav>
+
+    <!-- Article Content -->
+    <div class="container">
+        <h1>{{ article[1] }}</h1>
+        <p><strong>Date:</strong> {{ article[3] }}</p>
+        <p>{{ article[2] }}</p>
+    </div>
+</body>
+</html>
